@@ -1,0 +1,122 @@
+/*
+  La página de descarga: la que se enlaza en WhatsApp, en Instagram y en los carteles.
+  Es la única página del dominio que NO es la app: la app manda a abrirla desde el móvil,
+  y quien llega buscando dónde bajarla tiene que encontrar los dos botones y nada más.
+
+  Sin estilos ni guiones dentro del HTML: la política de seguridad del sitio
+  (`scripts/build-headers.mjs`) sólo admite hojas y guiones propios, y con razón.
+*/
+
+:root {
+  --rojo: #ae2227;
+  --rojo-claro: #d33a40;
+  --negro: #16161a;
+  --gris: #6b6b72;
+  --borde: #e3e3e6;
+  --fondo: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+/*
+  Los brochazos del sindicato, los mismos que la app lleva detrás de sus pantallas, anclados
+  abajo a la derecha. En blanco pelado la página quedaba sosa (Pablo, 17/10) y cualquier otra
+  cosa sería inventarse una marca que ya existe.
+
+  Sin `background-attachment: fixed`: en Safari de iPhone eso se arrastra a tirones al hacer
+  scroll. Con el cuerpo a pantalla completa, el dibujo se queda abajo igual y no se mueve.
+*/
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fondo) url("/brand/fondo-brochazos.webp") no-repeat right bottom;
+  background-size: min(86vw, 620px) auto;
+  color: var(--negro);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* --- La página ----------------------------------------------------------------------- */
+
+/* Una página normal sobre blanco: el sello, el nombre y los dos botones, y se acabó. */
+main {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 56px 20px 64px;
+  text-align: center;
+}
+
+.sello {
+  width: 120px;
+  height: 120px;
+  border-radius: 22px;
+  background: #fff;
+}
+
+h1 {
+  margin: 18px 0 6px;
+  font-size: clamp(1.7rem, 6vw, 2.4rem);
+  letter-spacing: -0.02em;
+}
+
+.lema {
+  margin: 0 auto 30px;
+  max-width: 30ch;
+  color: var(--gris);
+  font-size: 1.05rem;
+}
+
+/* --- Los dos botones ------------------------------------------------------------------ */
+
+.tiendas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.tienda {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 232px;
+  padding: 12px 22px;
+  border: 1px solid var(--rojo);
+  border-radius: 12px;
+  background: var(--rojo);
+  color: #fff;
+  text-decoration: none;
+  transition: border-color .15s, background .15s, transform .15s;
+}
+
+.tienda:hover,
+.tienda:focus-visible { background: #97181d; border-color: #97181d; }
+
+.tienda:active { transform: translateY(1px); }
+
+.tienda svg { width: 28px; height: 28px; fill: #fff; flex-shrink: 0; }
+
+.tienda span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.tienda small {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #f3c9ca;
+}
+
+/*
+  Nada debajo de los botones (Pablo, 17/10): la página es sólo para elegir tienda.
+*/

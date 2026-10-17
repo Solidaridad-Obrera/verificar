@@ -1,63 +1,39 @@
 <!doctype html>
-<!--
-  La página a la que lleva el enlace del correo de verificación (Pablo, 08/10).
-
-  Aparte de la app, a propósito: la app web no se usa (sólo desde el móvil), y esta página no tiene
-  que iniciar sesión ni guardar nada. Sólo activa la cuenta y dice que ya se puede entrar en la app.
-
-  Verifica al cargar, con JavaScript, y no con un enlace directo a Supabase: los antivirus del correo
-  abren los enlaces para mirarlos, y un enlace directo se gastaría antes de que la persona lo pulsara.
-  Esos robots no ejecutan JavaScript, así que aquí el enlace sólo se gasta cuando lo abre alguien.
-
-  La respuesta de Supabase trae una sesión; no se guarda. Y la dirección se limpia en cuanto se lee,
-  para que el enlace no se quede en el historial ni se comparta sin querer.
--->
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Verificar cuenta · Solidaridad Obrera</title>
-<link rel="icon" href="/icons/favicon-32.png">
-<link rel="stylesheet" href="/verificar.css">
+<title>Descarga la app de Solidaridad Obrera</title>
+<meta name="description" content="App oficial del sindicato Solidaridad Obrera de Metro de Madrid. Para Android y para iPhone.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Descarga la app de Solidaridad Obrera">
+<meta property="og:description" content="App oficial del sindicato Solidaridad Obrera de Metro de Madrid. Para Android y para iPhone.">
+<meta property="og:image" content="/icons/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="/icons/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/descargar-estilo.css">
 </head>
 <body>
-  <main class="tarjeta">
-    <div class="dentro">
-      <img src="/correo/escudo.png" alt="Solidaridad Obrera">
 
-      <section id="comprobando">
-        <div class="rueda" aria-hidden="true"></div>
-        <p>Verificando tu cuenta…</p>
-      </section>
+<main>
+  <img class="sello" src="/icons/icon-192.png" width="120" height="120" alt="Solidaridad Obrera">
+  <h1>Solidaridad Obrera</h1>
+  <p class="lema">App oficial del sindicato Solidaridad Obrera de Metro de Madrid</p>
 
-      <section id="hecho" hidden>
-        <h1>¡Cuenta verificada!</h1>
-        <p>Tu cuenta se ha activado correctamente.</p>
-        <p><strong>Ya puedes iniciar sesión en la app de Solidaridad Obrera.</strong></p>
-        <p class="suave">Puedes cerrar esta página.</p>
-      </section>
+  <!-- Los dos botones, siempre los dos y exactamente iguales: quien entra elige el suyo.
+       Nada de resaltar uno según el móvil, que es decidir por quien mira. -->
+  <nav class="tiendas">
+    <a class="tienda" href="https://play.google.com/store/apps/details?id=org.solimetromadrid.app">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.6 1.8a1 1 0 0 0-.5.9v18.6a1 1 0 0 0 .5.9l10-10.2zM14.9 10.5 5.4 1.1l11.2 6.4zM14.9 13.5l1.7 3-11.2 6.4zM17.9 8.2l3 1.7a1.1 1.1 0 0 1 0 2l-3 1.7-2.1-2.3z"/></svg>
+      <span><small>Disponible en</small>Google Play</span>
+    </a>
+    <a class="tienda" href="https://apps.apple.com/es/app/id6812331373">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-2.9.9-3.7 2.3-1.6 2.7-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.2 1.3-2.5 1.3-2.5s-2.5-1-2.5-3.6zM14.2 5.9c.6-.8 1.1-1.9 1-3-1 0-2.1.6-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.2-.6 2.8-1.4z"/></svg>
+      <span><small>Descárgala en el</small>App Store</span>
+    </a>
+  </nav>
+</main>
 
-      <section id="gastado" hidden>
-        <h1>Este enlace ya no vale</h1>
-        <p>Puede que ya lo hayas usado: entonces tu cuenta ya está verificada y puedes iniciar sesión en la app.</p>
-        <p class="suave">Si no puedes entrar, puede que haya caducado (dura 24 horas). Vuelve a registrarte en la app con los mismos datos y te enviaremos otro.</p>
-      </section>
-
-      <section id="incompleto" hidden>
-        <h1>Enlace incompleto</h1>
-        <p>A este enlace le falta una parte. Ábrelo pulsando el botón del correo, o copia el enlace entero.</p>
-      </section>
-
-      <section id="sinRed" hidden>
-        <h1>No hemos podido comprobarlo</h1>
-        <p>Revisa la conexión y vuelve a abrir el enlace del correo.</p>
-      </section>
-
-      <p class="lema">La lucha es el único camino</p>
-    </div>
-  </main>
-
-<script src="/verificar.js" defer></script>
 </body>
 </html>

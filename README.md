@@ -1,7 +1,11 @@
-# La página que activa la cuenta
+# Las dos páginas del sindicato que viven fuera de Cloudflare
 
-Los tres ficheros que abre el enlace del correo de verificación cuando alguien se registra en la
-app de Solidaridad Obrera, servidos por GitHub Pages en `verificar.solimetromadrid.org`.
+Servidas por GitHub Pages en `app.solimetromadrid.org`:
+
+- **`/`** — la página de descarga, con los botones de Google Play y App Store. Es la que se
+  enlaza en WhatsApp, en la bio de Instagram y en los carteles.
+- **`/verificar`** — la que abre el enlace del correo cuando alguien se registra y activa su
+  cuenta.
 
 ## Por qué vive aquí y no en la app
 

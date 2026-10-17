@@ -1,0 +1,26 @@
+/* Los estilos de verificar.html: van aparte porque la política de seguridad de la web no deja
+   estilos escritos dentro de la página. */
+  :root { --rojo: #E2001A; --negro: #1A1A1D; --gris: #5B5B60; --fondo: #EFEEEC; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; align-items: center;
+    justify-content: center; padding: 24px 16px; background: var(--fondo); color: var(--negro);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  }
+  .tarjeta {
+    width: 100%; max-width: 440px; background: #fff; border-radius: 16px; overflow: hidden;
+    text-align: center; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  }
+  .tarjeta::before { content: ''; display: block; height: 6px; background: var(--rojo); }
+  .dentro { padding: 32px 28px 30px; }
+  img { width: 96px; height: 96px; display: block; margin: 0 auto 18px; }
+  h1 { margin: 0 0 12px; font-size: 24px; line-height: 1.25; color: var(--rojo); }
+  p { margin: 0 0 10px; font-size: 16px; line-height: 1.55; color: var(--negro); }
+  p.suave { color: var(--gris); font-size: 14px; }
+  .lema { margin-top: 22px; font-family: Georgia, 'Times New Roman', serif; font-style: italic; color: var(--negro); }
+  .rueda {
+    width: 28px; height: 28px; margin: 6px auto 12px; border-radius: 50%;
+    border: 3px solid #F1D3D6; border-top-color: var(--rojo); animation: girar 0.9s linear infinite;
+  }
+  @keyframes girar { to { transform: rotate(360deg); } }
+  [hidden] { display: none !important; }

@@ -1,0 +1,63 @@
+<!doctype html>
+<!--
+  La página a la que lleva el enlace del correo de verificación (Pablo, 08/10).
+
+  Aparte de la app, a propósito: la app web no se usa (sólo desde el móvil), y esta página no tiene
+  que iniciar sesión ni guardar nada. Sólo activa la cuenta y dice que ya se puede entrar en la app.
+
+  Verifica al cargar, con JavaScript, y no con un enlace directo a Supabase: los antivirus del correo
+  abren los enlaces para mirarlos, y un enlace directo se gastaría antes de que la persona lo pulsara.
+  Esos robots no ejecutan JavaScript, así que aquí el enlace sólo se gasta cuando lo abre alguien.
+
+  La respuesta de Supabase trae una sesión; no se guarda. Y la dirección se limpia en cuanto se lee,
+  para que el enlace no se quede en el historial ni se comparta sin querer.
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Verificar cuenta · Solidaridad Obrera</title>
+<link rel="icon" href="/icons/favicon-32.png">
+<link rel="stylesheet" href="/verificar.css">
+</head>
+<body>
+  <main class="tarjeta">
+    <div class="dentro">
+      <img src="/correo/escudo.png" alt="Solidaridad Obrera">
+
+      <section id="comprobando">
+        <div class="rueda" aria-hidden="true"></div>
+        <p>Verificando tu cuenta…</p>
+      </section>
+
+      <section id="hecho" hidden>
+        <h1>¡Cuenta verificada!</h1>
+        <p>Tu cuenta se ha activado correctamente.</p>
+        <p><strong>Ya puedes iniciar sesión en la app de Solidaridad Obrera.</strong></p>
+        <p class="suave">Puedes cerrar esta página.</p>
+      </section>
+
+      <section id="gastado" hidden>
+        <h1>Este enlace ya no vale</h1>
+        <p>Puede que ya lo hayas usado: entonces tu cuenta ya está verificada y puedes iniciar sesión en la app.</p>
+        <p class="suave">Si no puedes entrar, puede que haya caducado (dura 24 horas). Vuelve a registrarte en la app con los mismos datos y te enviaremos otro.</p>
+      </section>
+
+      <section id="incompleto" hidden>
+        <h1>Enlace incompleto</h1>
+        <p>A este enlace le falta una parte. Ábrelo pulsando el botón del correo, o copia el enlace entero.</p>
+      </section>
+
+      <section id="sinRed" hidden>
+        <h1>No hemos podido comprobarlo</h1>
+        <p>Revisa la conexión y vuelve a abrir el enlace del correo.</p>
+      </section>
+
+      <p class="lema">La lucha es el único camino</p>
+    </div>
+  </main>
+
+<script src="/verificar.js" defer></script>
+</body>
+</html>
